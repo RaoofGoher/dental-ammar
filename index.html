@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Project</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lightColor1: "#DEF8E3",
+                        lightColor2: "#26C146",
+                        lightColor3: "#EEFCF1",
+                        darkColor1: "#030E05",
+                        darkColor2: "#18241A",
+                        darkColor3: "#187D2E",
+                        darkColor4: "#4ED269",
+                    },
+                    fontFamily: {
+                        poppins: ["Poppins", "sans-serif"],
+                        roboto: ["Roboto", "sans-serif"],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <!-- Icon Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        crossorigin="anonymous"></script>
+
+
+</head>
+
+<body class="bg-darkColor1 text-lightColor1 font-poppins">
+    <nav class="bg-darkColor2 p-1 fixed top-0 left-0 w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="flex items-center text-lightColor1 text-2xl font-bold">
+                <i class="fas fa-tooth text-lightColor2"></i>
+                DentalCare
+            </a>
+            <button id="menu-toggle" class="md:hidden text-lightColor1 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <ul id="menu" class="fixed top-0 left-0 w-64 h-full bg-darkColor2 text-lightColor1 flex flex-col space-y-6 p-6 transform -translate-x-full transition-transform duration-300 md:relative md:top-0 md:w-auto md:h-auto md:flex-row md:space-y-0 md:space-x-6 md:translate-x-0">
+                <li class="md:hidden flex items-center space-x-2 border-b border-lightColor1 pb-3">
+        <i class="fas fa-tooth text-3xl text-lightColor2"></i>
+        <span class="text-2xl font-bold">DentalCare</span>
+    </li>
+
+                <li>
+                    <a href="#" class="relative flex items-center text-lightColor1 border-b-2 border-transparent pb-1 
+    hover:text-lightColor2 
+    before:absolute before:bottom-[-2px]  before:left-0 before:w-0 before:h-0.5 before:bg-lightColor1 
+    before:transition-all before:duration-300 hover:before:w-full">
+                        <i class="fas fa-home w-5 h-5 mr-2 text-lightColor2"></i>Home
+                    </a>
+
+                </li>
+                <li>
+                    <a href="#" class="relative flex items-center text-lightColor1 border-b-2 border-transparent pb-1 
+                    hover:text-lightColor2 
+                    before:absolute before:bottom-[-2px] before:left-0 before:w-0 before:h-0.5 before:bg-lightColor1 
+                    before:transition-all before:duration-300 hover:before:w-full">
+                        <i data-lucide="activity" class="w-5 h-5 mr-2 text-lightColor2"></i>Services
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="relative flex items-center text-lightColor1 border-b-2 border-transparent pb-1 
+                    hover:text-lightColor2 
+                    before:absolute before:bottom-[-2px] before:left-0 before:w-0 before:h-0.5 before:bg-lightColor1 
+                    before:transition-all before:duration-300 hover:before:w-full">
+                        <i data-lucide="user" class="w-5 h-5 mr-2 text-lightColor2"></i>Doctors
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="relative flex items-center text-lightColor1 border-b-2 border-transparent pb-1 
+                    hover:text-lightColor2 
+                    before:absolute before:bottom-[-2px] before:left-0 before:w-0 before:h-0.5 before:bg-lightColor1 
+                    before:transition-all before:duration-300 hover:before:w-full">
+                        <i data-lucide="phone" class="w-5 h-5 mr-2 text-lightColor2"></i>Contact
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="relative flex items-center text-lightColor1 border-b-2 border-transparent pb-1 
+                    hover:text-lightColor2 
+                    before:absolute before:bottom-[-2px] before:left-0 before:w-0 before:h-0.5 before:bg-lightColor1 
+                    before:transition-all before:duration-300 hover:before:w-full">
+                        <i data-lucide="info" class="w-5 h-5 mr-2 text-lightColor2 hover:border-bottom"></i>About
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-6 text-center">
+        <h1 class="text-4xl font-bold text-lightColor2">Welcome to Tailwind Project</h1>
+        <p class="text-lg mt-4 text-lightColor3 font-roboto">This is a basic template with Tailwind and Google Fonts.
+        </p>
+        <button class="mt-6 px-4 py-2 bg-darkColor3 text-lightColor1 rounded-lg hover:bg-darkColor4">
+            Click Me
+        </button>
+
+        <!-- Lucide Icon -->
+        <div class="mt-4 flex justify-center">
+            <i data-lucide="star" class="w-10 h-10 text-lightColor2"></i>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+    <script>
+       const menuToggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+const menuItems = document.querySelectorAll('#menu a:not(.logo)'); // Exclude the logo
+let menuOpen = false;
+
+menuToggle.addEventListener('click', function () {
+    menu.classList.toggle('-translate-x-full');
+
+    // Toggle Icon
+    if (menuOpen) {
+        menuToggle.innerHTML = '<i class="fas fa-bars text-2xl"></i>';
+    } else {
+        menuToggle.innerHTML = '<i class="fas fa-times text-2xl"></i>';
+    }
+
+    menuOpen = !menuOpen;
+});
+
+// Function to remove active class from all menu items
+function removeActiveClasses() {
+    menuItems.forEach(item => {
+        item.classList.remove('border-lightColor2'); // Remove border from all items
+    });
+}
+
+// Close menu and add active class when a menu item is clicked
+menuItems.forEach(item => {
+    item.addEventListener('click', function () {
+        menu.classList.add('-translate-x-full'); // Hide menu
+        menuToggle.innerHTML = '<i class="fas fa-bars text-2xl"></i>'; // Reset icon
+        menuOpen = false;
+
+        removeActiveClasses(); // Remove active state from others
+        this.classList.add('border-lightColor2', 'border-b-2'); // Add border bottom to the clicked item
+    });
+});
+
+
+        
+    </script>
+    
+</body>
+
+</html>
